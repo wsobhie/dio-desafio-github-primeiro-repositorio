@@ -1,0 +1,166 @@
+Git e GitHub - Otávio Reis Perkles
+
+1- Controle de versão
+2- Armazenamento em nuvem
+3- Trabalho em equipe
+4- Melhorar seu codigo
+5- Reconhecimento
+
+GUI X CLI
+Graphical User Interface
+Command Line Interface
+
+Windows Subsystem for linux: para abrir o linux no Windows
+
+
+Windows			Unix
+CD			cd
+dir			Is
+mkdir			mkdir
+del/rmdir		rm -rf
+
+
+
+Git
+- SHA1: Secure Hash Algorithm, conjunto de funções hash criptograficas projetada pela NSA. Conjunto de caracteres de 40 digitos unicos.
+comando: openssl sha1 texto.txt
+
+- Objetos fundamentais: 
+Blobs: contem metadatos do git: tipo do objeto, tamanho, etc 
+Trees: trees armazenam blobs
+Commits: objeto que junta todos: aponta para uma tree, parente, autor, mensagem e timestamp. Tambem possuiu uma sha1
+
+- Sistema distribuido: sistema distribuido seguro 
+
+- Segurança
+
+Chaves SSH e Token:
+Chave SSH: é uma forma de estabelecer uma conexão segura da maquina local e o do servidor GitHub
+Passos para colocar a gerar e colocar a chave publica no GitHub
+gera a chave no gitbash
+1) ssh-keygen -t ed25519 -C wsobhie@hotmail.com
+   criar uma senha para a chave    : 
+2) entrar na pasta que gerou o arquivo
+3) pegar os dados do arquivo id_ed25519.pub com o comando abaixo
+   cat id_ed25519.pub
+   copiar a chave ssh gerada
+4) entrar no GitHub
+   clicar na seta para baixo do nome > setting
+   em SSH and GPG keys
+   clicar em New SSH key
+   colocar um nome para essa chave e colar o ssh 
+5) voltar para o gitbash para startar o agente
+   eval $(ssh-agent -s)
+6) passar a chave privada para o agente
+   ssh-add id_ed25519
+   colocar a senha da chave que gerou acima
+
+no github para clonar, usar keys
+
+Token de acesso pessoal:vai gerar um token no github e toda vez que for fazer um commit, coloca usuario, senha e o token pessoal
+Passos para gerar token 
+1) no GitHub: Settings -Developer setting - Personal access token
+   colocar nome do token
+   escolha por quantos dias
+   marcar repo
+   e gerar o token
+   copie o token para um arquivo no pc
+
+no github, para clonar, usar https
+
+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
+
+
+-------------------------- 
+-- Primeiros comandos com GIT
+-------------------------- 
+
+git init : inicializa o repositorio dentro da pasta
+git add
+git commit
+
+
+Typora - editor de arquivo Markdown para escrever paginas HTML com marcadores
+
+
+-- Criando um repositorio
+git init
+ls -a   : ver a pasta oculta gerada no git init
+
+git config --global user.email "wsobhie@hotmail.com"
+
+git config --global user.name "wsobhie"
+
+git add *
+ou
+git add nomeArquivo
+
+git commit -m "commit inicial"
+
+
+git 
+git status  -- para ver o status
+
+git config --list  : para ver as configurações
+
+git config --global --unset user.email    : para excluir o email da config
+
+git config --global --unset user.name     : para excluir o name da config
+
+e colocar novamente
+
+git config --global user.email "williamsobhie@vrsystem.com.br"
+
+git config --global user.name "wsobhie"
+
+
+no GitHub, cria um repositorio e pega a url
+
+no gitbash:
+git remote add origin https://github.com/wsobhie/livro-receitas.git
+
+git remote -v  : para ver as listas de remote cadastrado
+
+git push origin master    : para empurar para o repositório
+
+git pull origin master    : para trazer do reposito do github para a maquina local
+
+
+-- Clonar
+no github, entre no repositorio que quer clonar, clique em Code, pegue a url que está no https
+no gitbash
+git clone + url do git que quer clonar
+git clone https://gitbug.com/python/cpython.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
